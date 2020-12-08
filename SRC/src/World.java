@@ -4,4 +4,6 @@
  * @author Jean-François Giammari
  */
 public class World {
+
+
 }
