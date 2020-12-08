@@ -25,6 +25,6 @@
     <br />
     <br />
     <a href="https://github.com/JF-GIAMMARI/MinecraftLite/tree/master/UML"><strong>Voir les diagrammes UML »</strong></a>
-   <br /><a href="https://github.com/JF-GIAMMARI/MinecraftLite/tree/master/src"><strong>Voir le code  »</strong></a>
+   <br /><a href="https://github.com/JF-GIAMMARI/MinecraftLite/tree/master/SRC/src"><strong>Voir le code  »</strong></a>
 
   </p>
