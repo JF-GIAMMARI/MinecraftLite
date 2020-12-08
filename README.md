@@ -6,10 +6,11 @@
   </a>
 
   <h3 align="center">MINECRAFT LITE</h3>
-    <a href="https://github.com/JF-GIAMMARI/MinecraftLite/tree/master/UML"><strong>Voir les diagrammes UML »</strong></a>
-   <br /><a href="https://github.com/JF-GIAMMARI/MinecraftLite/tree/master/SRC/src"><strong>Voir le code  »</strong></a>
- <br /> <br />
+    
   <p align="center">
+  <a href="https://github.com/JF-GIAMMARI/MinecraftLite/tree/master/UML"><strong>Voir les diagrammes UML »</strong></a>
+     <br /><a href="https://github.com/JF-GIAMMARI/MinecraftLite/tree/master/SRC/src"><strong>Voir le code  »</strong></a>
+   <br /> <br />
     Minecraft Lite est un projet universitaire ayant pour but de développer une structure d'un jeu vidéo que l'on apprécie en Java et UML, afin de mettre en 
     pratique nos connaissances acquises en cours. Ce projet regroupe donc conception et programmation orienté objet.
       <br />
