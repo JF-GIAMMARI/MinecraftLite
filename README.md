@@ -12,9 +12,9 @@
     pratique nos connaissances acquises en cours. Ce projet regroupe donc conception et programmation orienté objet.
       <br />
         <br />
-        Dans ce projet j'ai décider de recréer de manière trés simplifier le célébre jeu video sandbox "Minecraft", en effet, dans Minecraft Lite, le joueur commence la partie dans un nouveau monde d’une taille définis à sa
+        Dans ce projet j'ai décidé de recréer de manière très simplifié le célèbre jeu video sandbox "Minecraft", en effet, dans Minecraft Lite, le joueur commence la partie dans un nouveau monde d’une taille définis à sa
                                                                                                                               création, il est entièrement composé de blocs de tout type de nom et couleur.   Il possède un inventaire
-                                                                                                                              d’une taille finis qui lui permet de stocker ce qu’il a miné dans le monde, ainsi qu’une barre de vie
+                                                                                                                              d’une taille finie qui lui permet de stocker ce qu’il a miné dans le monde, ainsi qu’une barre de vie
                                                                                                                               pleine d’une taille définis à sa création et d’autre statistique, il peut se déplacer dans cet espace
                                                                                                                               tridimensionnel.Il existe dans ce monde différentes zone appelé Biomes, qui contienne des blocs
                                                                                                                               spécifiques, et il existe également des structures comme des tours, généré entièrement à partir de blocs.
@@ -25,5 +25,6 @@
     <br />
     <br />
     <a href="https://github.com/JF-GIAMMARI/MinecraftLite/tree/master/UML"><strong>Voir les diagrammes UML »</strong></a>
+   <br /><a href="https://github.com/JF-GIAMMARI/MinecraftLite/tree/master/src"><strong>Voir le code  »</strong></a>
 
   </p>
