@@ -5,5 +5,5 @@
  */
 
 
-public class Entity implements Position,Statistic {
+public class Entity implements Positionable, Statisticable {
 }

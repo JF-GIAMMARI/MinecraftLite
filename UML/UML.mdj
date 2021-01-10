@@ -543,7 +543,7 @@
 											"top": 460,
 											"width": 85.22998046875,
 											"height": 13,
-											"text": "Positionnable"
+											"text": "Positionable"
 										},
 										{
 											"_type": "LabelView",
@@ -5313,7 +5313,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "Positionnable",
+					"name": "Positionable",
 					"stereotype": "interface",
 					"attributes": [
 						{
@@ -5582,7 +5582,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "Position",
+					"name": "Positionable",
 					"attributes": [
 						{
 							"_type": "UMLAttribute",

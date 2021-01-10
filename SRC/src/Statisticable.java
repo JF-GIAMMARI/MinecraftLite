@@ -4,5 +4,5 @@
  * @author Jean-François Giammari
  */
 
-public interface Statistic {
+public interface Statisticable {
 }

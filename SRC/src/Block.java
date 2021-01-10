@@ -4,5 +4,5 @@
  * @author Jean-François Giammari
  */
 
-public class Block implements Position {
+public class Block implements Positionable {
 }
