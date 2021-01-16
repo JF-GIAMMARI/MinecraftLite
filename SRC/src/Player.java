@@ -4,5 +4,7 @@
  * @author Jean-François Giammari
  */
 
-public class Player extends Entity {
+public class Player extends Entity implements Positionable {
+
+
 }

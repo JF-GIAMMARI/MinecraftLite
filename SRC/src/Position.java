@@ -33,6 +33,14 @@ public class Position {
         return z;
     }
 
+    public int[] getPos(){
+        int[] pos = new int[3];
+        pos[0] = x;
+        pos[1] = y;
+        pos[2] = z;
+        return pos;
+    }
+
     @Override
     public String toString() {
         return "X = " + x + ", Y = " + y + ", Z = " + z ;

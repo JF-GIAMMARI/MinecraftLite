@@ -9,13 +9,14 @@ public class World {
     public static int nb_world;
     private String name;
     final private  int ID;
-    final private int DEFAULTSIZE = 100;
-    final private int MAXSIZE = 1000;
+    final private int DEFAULTSIZE = 10;
+    final private int MAXSIZE = 100;
     final private int MINSIZE = 1;
+    private Generator gen;
     private MapStyle mapStyle;
-    private ArrayList<Block> map;
-    private Position spawn_point;
+    private ArrayList<ArrayList<ArrayList<Block>>> map;
     private ArrayList<Integer> world_size = new ArrayList<Integer>();
+    private ArrayList<Structure> structures = new ArrayList<Structure>();
 
     /**
      * Constructor for World with all parameter
@@ -23,18 +24,18 @@ public class World {
      * @param x_Max : X axis max value
      * @param y_Max : Y axis max value
      * @param z_Max : Z axis max value
-     * @param x_Min : X axis min value
-     * @param y_Min : Y axis min value
-     * @param z_Min : Z axis min value
+
      */
-    public World(String name, MapStyle map_style, int x_Max, int y_Max, int z_Max, int x_Min, int y_Min, int z_Min, Position in_spawn_point) {
-        this.name = name;
+    public World(String name, MapStyle map_style, int x_Max, int y_Max, int z_Max) {
+        if(name == null || name.length() == 0){
+            this.name = "Untilted";
+        }else{
+            this.name = name;
+        }
+
         world_size.add(x_Max);
         world_size.add(y_Max);
         world_size.add(z_Max);
-        world_size.add(x_Min);
-        world_size.add(y_Min);
-        world_size.add(z_Min);
 
         for (int i = 0; i < world_size.size(); i++) {
             if(world_size.get(i) == 0){
@@ -45,41 +46,40 @@ public class World {
                 throw new IllegalArgumentException(world_size.get(i) + " is to high (MAX : "+ MAXSIZE+" )");
             }
         }
-        spawn_point = in_spawn_point;
         mapStyle = map_style;
         nb_world++;
         ID = nb_world;
+        gen = new Generator(world_size, this);
         genMap();
 
     }
 
     /**
-     * Constructor for World with the name and the map style
+     * Constructor for World with all but not the name
      **/
-    public World(String name, MapStyle map_style, int x_Max, int y_Max, int z_Max, int x_Min, int y_Min, int z_Min) {
-        this(name, map_style,x_Max,y_Max,z_Max,x_Min,y_Min,z_Min, new Position(0,0,0));
+    public World(MapStyle map_style, int x_Max, int y_Max, int z_Max) {
+        this("", map_style,x_Max,y_Max,z_Max);
     }
 
     /**
      * Constructor for World with the name and the map style
      **/
     public World(String name, MapStyle map_style) {
-        this(name, map_style,0,0,0,0,0,0, new Position(0,0,0));
+        this(name, map_style,0,0,0);
     }
 
     /**
      * Constructor for World with only the name
      **/
     public World(String name) {
-        this(name, MapStyle.STANDARD,0,0,0,0,0,0, new Position(0,0,0));
+        this(name, MapStyle.STANDARD,0,0,0);
     }
-
 
     /**
      * Constructor for World without parameter
      **/
     public World() {
-        this("Untilted "+(nb_world+1),MapStyle.STANDARD, 0,0,0,0,0,0,new Position(0,0,0));
+        this("",MapStyle.STANDARD, 0,0,0);
     }
 
     /**
@@ -88,18 +88,68 @@ public class World {
     private void genMap(){
         switch(mapStyle) {
             case STANDARD:
-                System.out.println("Standard gen");
+                this.map = gen.Standard();
                 break;
             case FLAT:
-                System.out.println("Flat gen");
+                this.map = gen.Flat(Colors.GREEN);
                 break;
             case VOID:
-                System.out.println("Void gen");
+                this.map = gen.Void();
                 break;
         }
         System.out.println("Map as been generate");
+    }
+
+    /**
+     * Generation of a structure
+     */
+    public void genStructure(Structure structure){
+        structures.add(structure);
+        // Not implemented
+        // Read blueprint structure
+        // Replace colors from the blueprint to block in the map with relative position
+        // WARN :  If NONE Colors is present in a location, there is no replacement in the world.
 
     }
+
+    /**
+     * Get the structure of the structure list by an index value
+     * @param index
+     * @return Structure
+     */
+    public Structure getStructureByIndex(int index){
+        if(index > structures.size()){
+            throw new IllegalArgumentException("Invalid index");
+        }
+        return structures.get(index);
+    }
+
+    /**
+     * Get the structure of the structure list by an index value
+     * @param ID
+     * @return Structure
+     */
+    public Structure getStructureByID(int ID){
+        int result = -1;
+        for (int i = 0; i <structures.size(); i++) {
+            if(structures.get(i).getID() == ID){
+                result = i;
+            }
+        }
+        if(result == -1){
+            throw new IllegalArgumentException("Invalid ID");
+        }
+        return structures.get(result);
+    }
+
+    /**
+     * Get the structure list
+     * @return structures
+     */
+    public ArrayList<Structure> getAllStructure(){
+        return structures;
+    }
+
 
     /**
      * Get the block object of a position on the map
@@ -107,7 +157,7 @@ public class World {
      * @return block
      */
     public Block getBlock(Position position){
-        return new Block();
+        return map.get(position.getX()).get(position.getY()).get(position.getZ());
     }
 
     /**
@@ -115,7 +165,9 @@ public class World {
      * @param position
      */
     public void deleteBlock(Position position){
-
+        // Delete a block is replace it by a void block
+        Block block = new Block(Colors.VOID, this, position);
+        map.get(position.getX()).get(position.getY()).add(position.getZ(),block);
     }
 
     /**
@@ -135,11 +187,11 @@ public class World {
     }
 
     /**
-     * Getter for spawn_point
-     * @return spawn_point
+     * Getter for nb_world
+     * @return nb_world
      */
-    public Position getSpawn_point() {
-        return spawn_point;
+    public static int getNb_world() {
+        return nb_world;
     }
 
     /**
@@ -155,14 +207,18 @@ public class World {
      * @return name
      */
     public void setName(String name) {
-        this.name = name;
+        if(name == null || name.length() == 0){
+            System.err.println("The name is not valid, no change was make");;
+        }else{
+            this.name = name;
+        }
     }
 
     /**
      * Getter for map
      * @return map
      */
-    public ArrayList<Block> getMap() {
+    public ArrayList<ArrayList<ArrayList<Block>>> getMap() {
         return this.map;
     }
 
@@ -171,18 +227,24 @@ public class World {
      */
     public String viewMap(){
         final StringBuilder gm = new StringBuilder("");
-        gm.append("TEst");
+        gm.append("Map Visualisation (Top View) :  \n");
+        for (int i = 0; i < map.size(); i++) {
+            for (int j = 0; j < map.get(i).size(); j++) {
+                gm.append(" ["+map.get(i).get(j).size()+"]");
+            }
+            gm.append("\n");
+        }
         return gm.toString();
     }
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("World : ");
-        sb.append(name);
+        final StringBuilder sb = new StringBuilder("Name: "+name);
         sb.append(" [").append(ID).append("]\n");
         sb.append("Size  : ").append(world_size).append("\n");
-        sb.append("Spawn Position : ").append(spawn_point.toString()).append("\n");
-        sb.append(viewMap());
+        if(structures.size() != 0){
+            sb.append("\n Structures : ");
+        }
         return sb.toString();
     }
 }

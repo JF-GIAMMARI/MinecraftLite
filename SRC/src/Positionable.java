@@ -4,4 +4,6 @@
  * @author Jean-François Giammari
  */
 public interface Positionable {
+    void setPosition(Position pos);
+    Position getPosition();
 }

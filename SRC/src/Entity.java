@@ -6,4 +6,11 @@
 
 
 public class Entity implements Positionable, Statisticable {
+    private Position pos;
+    public void setPosition(Position pos){
+        this.pos = pos;
+    };
+    public Position getPosition(){
+        return this.pos;
+    };
 }
