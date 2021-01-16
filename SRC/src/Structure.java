@@ -29,7 +29,7 @@ public abstract class Structure implements Positionable {
         if(y_length > MAXSIZE || y_length < MINSIZE){
             this.y_length = DEFAULTSIZE;
         }else{
-            this.y_length = x_length;
+            this.y_length = y_length;
         }
         nb_struct++;
         ID = nb_struct;
@@ -50,7 +50,6 @@ public abstract class Structure implements Positionable {
         return ID;
     }
 
-
     /**
      * Getter for nb_struct
      * @return nb_struct
@@ -64,7 +63,7 @@ public abstract class Structure implements Positionable {
      */
     public void setPosition(Position pos){
         this.pos = pos;
-    };
+    }
 
     /**
      * Getter for Position
@@ -72,7 +71,7 @@ public abstract class Structure implements Positionable {
      */
     public Position getPosition(){
         return this.pos;
-    };
+    }
 
     /**
      * Getter for X Length
@@ -80,7 +79,7 @@ public abstract class Structure implements Positionable {
      */
     public int getXLength(){
         return this.x_length;
-    };
+    }
 
     /**
      * Getter for Y Length
@@ -88,14 +87,13 @@ public abstract class Structure implements Positionable {
      */
     public int getYLength(){
         return this.y_length;
-    };
+    }
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder();
-        sb.append("ID : ").append(ID).append("\n");
-        sb.append("Position : ").append(this.getPosition()).append("\n");
-        sb.append("Size  : ").append(x_length+" * "+ y_length);
-        return sb.toString();
+        String result = "ID : " + ID + "\n" +
+                "Position : " + this.getPosition() + "\n" +
+                "Size  : " + x_length + " * " + y_length;
+        return result;
     }
 }

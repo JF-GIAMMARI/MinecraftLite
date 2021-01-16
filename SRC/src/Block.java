@@ -25,7 +25,6 @@ public class Block implements Positionable {
         this.pos = pos;
         nb_block++;
         this.name = "Block_N"+nb_block;
-
     }
 
     /**
@@ -35,13 +34,12 @@ public class Block implements Positionable {
         this(Colors.RED, w, pos);
     }
 
-
     /**
      * Setter for Position
      */
     public void setPosition(Position pos){
         this.pos = pos;
-    };
+    }
 
     /**
      * Getter for Position
@@ -49,7 +47,7 @@ public class Block implements Positionable {
      */
     public Position getPosition(){
         return this.pos;
-    };
+    }
 
     /**
      * Getter for name
@@ -85,12 +83,11 @@ public class Block implements Positionable {
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("Name: ");
-        sb.append(name).append("\n");
-        sb.append("Color : ").append(color).append("\n");
-        sb.append("World : ").append(world.getName()).append("\n");
-        sb.append("Position : ").append(this.getPosition()).append("\n");
-        return sb.toString();
+        String result = "Name: " + name + "\n" +
+                "Color : " + color + "\n" +
+                "World : " + world.getName() + "\n" +
+                "Position : " + this.getPosition() + "\n";
+        return result;
     }
 
     @Override

@@ -13,6 +13,10 @@ public enum Colors {
     VOID,
     NONE;
 
+    /**
+     * Random getter for Colors (length-2 for only direct Colors, not Void & None)
+     * @return Colors
+     */
     public static Colors getRandomColor() {
         Random rd = new Random();
         return values()[rd.nextInt(values().length-2)];

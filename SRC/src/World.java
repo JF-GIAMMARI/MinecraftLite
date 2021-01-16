@@ -5,6 +5,7 @@ import java.util.ArrayList;
  * Description : Classe implémentant le monde
  * @author Jean-François Giammari
  */
+
 public class World {
     public static int nb_world;
     private String name;
@@ -15,8 +16,8 @@ public class World {
     private Generator gen;
     private MapStyle mapStyle;
     private ArrayList<ArrayList<ArrayList<Block>>> map;
-    private ArrayList<Integer> world_size = new ArrayList<Integer>();
-    private ArrayList<Structure> structures = new ArrayList<Structure>();
+    private ArrayList<Integer> world_size = new ArrayList<>();
+    private ArrayList<Structure> structures = new ArrayList<>();
 
     /**
      * Constructor for World with all parameter
@@ -51,7 +52,6 @@ public class World {
         ID = nb_world;
         gen = new Generator(world_size, this);
         genMap();
-
     }
 
     /**
@@ -86,16 +86,10 @@ public class World {
      * Generation of the map
      */
     private void genMap(){
-        switch(mapStyle) {
-            case STANDARD:
-                this.map = gen.Standard();
-                break;
-            case FLAT:
-                this.map = gen.Flat(Colors.GREEN);
-                break;
-            case VOID:
-                this.map = gen.Void();
-                break;
+        switch (mapStyle) {
+            case STANDARD -> this.map = gen.Standard();
+            case FLAT -> this.map = gen.Flat(Colors.GREEN);
+            case VOID -> this.map = gen.Void();
         }
         System.out.println("Map as been generate");
     }
@@ -109,12 +103,11 @@ public class World {
         // Read blueprint structure
         // Replace colors from the blueprint to block in the map with relative position
         // WARN :  If NONE Colors is present in a location, there is no replacement in the world.
-
     }
 
     /**
      * Get the structure of the structure list by an index value
-     * @param index
+     * @param index : structures Arrayist index
      * @return Structure
      */
     public Structure getStructureByIndex(int index){
@@ -126,7 +119,7 @@ public class World {
 
     /**
      * Get the structure of the structure list by an index value
-     * @param ID
+     * @param ID : Structure ID
      * @return Structure
      */
     public Structure getStructureByID(int ID){
@@ -153,7 +146,7 @@ public class World {
 
     /**
      * Get the block object of a position on the map
-     * @param position
+     * @param position : Position of the block
      * @return block
      */
     public Block getBlock(Position position){
@@ -162,7 +155,7 @@ public class World {
 
     /**
      * Delete the block from a position
-     * @param position
+     * @param position : Position of the block
      */
     public void deleteBlock(Position position){
         // Delete a block is replace it by a void block
@@ -204,11 +197,10 @@ public class World {
 
     /**
      * Setter for name
-     * @return name
      */
     public void setName(String name) {
         if(name == null || name.length() == 0){
-            System.err.println("The name is not valid, no change was make");;
+            System.err.println("The name is not valid, no change was make");
         }else{
             this.name = name;
         }
@@ -226,11 +218,11 @@ public class World {
      * Display the map
      */
     public String viewMap(){
-        final StringBuilder gm = new StringBuilder("");
+        final StringBuilder gm = new StringBuilder();
         gm.append("Map Visualisation (Top View) :  \n");
-        for (int i = 0; i < map.size(); i++) {
-            for (int j = 0; j < map.get(i).size(); j++) {
-                gm.append(" ["+map.get(i).get(j).size()+"]");
+        for (ArrayList<ArrayList<Block>> arrayLists : map) {
+            for (ArrayList<Block> arrayList : arrayLists) {
+                gm.append(" [").append(arrayList.size()).append("]");
             }
             gm.append("\n");
         }
