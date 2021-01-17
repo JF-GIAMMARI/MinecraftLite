@@ -25,8 +25,8 @@ public class Main {
         w1.genStructure(t2); // Ajout au monde de t2
         System.out.println("\nToute les structure :\n" + w1.getAllStructure());
         //System.out.println(w1.getStructureByIndex(2)); // Index invalide
-        System.out.println("\nLa structure ID 1 : \n" + w1.getStructureByID(1));
-        System.out.println(w1);
+        //System.out.println("\nLa structure ID 1 : \n" + w1.getStructureByID(1));
+
 
         System.out.println("\n\n\n-> Le joueur et le monde");
         //Player p0= new Player(w1,new Position(0,4,2),10,3); // IllegalPositionException
@@ -51,7 +51,7 @@ public class Main {
         System.out.println("\n\n2.Inventaire & Intéraction\n");
 
         p1.openInventory();
-        System.out.println("*Ajout d'une feuille de papier a l'inventaire*");
+        System.out.println("*Ajout d'une feuille de papier & un baton a l'inventaire*");
         Item paper = new Item(ItemType.OBJECTS, "Paper");
         Item stick = new Item(ItemType.OBJECTS, "Stick");
         p1.giveItem(paper);

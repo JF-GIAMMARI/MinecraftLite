@@ -10,6 +10,7 @@
   <p align="center">
   <a href="https://github.com/JF-GIAMMARI/MinecraftLite/tree/master/UML"><strong>Voir les diagrammes UML »</strong></a>
      <br /><a href="https://github.com/JF-GIAMMARI/MinecraftLite/tree/master/SRC/src"><strong>Voir le code  »</strong></a>
+<br /><a href="https://youtu.be/luFYyFuXHHk "><strong>Voir la vidéo de démonstration  »</strong></a>
    <br /> <br />
     Minecraft Lite est un projet universitaire ayant pour but de développer une structure d'un jeu vidéo que l'on apprécie en Java et UML, afin de mettre en 
     pratique nos connaissances acquises en cours. Ce projet regroupe donc conception et programmation orienté objet.
@@ -19,7 +20,7 @@
                                                                                                                               création, il est entièrement composé de blocs de tout type de nom et couleur.   Il possède un inventaire
                                                                                                                               d’une taille finie qui lui permet de stocker ce qu’il a miné dans le monde, ainsi qu’une barre de vie
                                                                                                                               pleine d’une taille définis à sa création et d’autre statistique, il peut se déplacer dans cet espace
-                                                                                                                              tridimensionnel.Il existe dans ce monde différentes zone appelé Biomes, qui contienne des blocs
+                                                                                                                             tridimensionnel.Il existe dans ce monde différentes zone appelé Biomes, qui contienne des blocs
                                                                                                                               spécifiques, et il existe également des structures comme des tours, généré entièrement à partir de blocs.
                                                                                                                                   <br />     <br /> L’objectif du joueur est de survivre le plus longtemps face a d’autre entité, appelé Mobs composée
                                                                                                                               également de statistique qui peuvent se déplacer et cherche à attaquer le joueur. Une fois mort, la partie
