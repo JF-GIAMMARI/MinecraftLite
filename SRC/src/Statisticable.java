@@ -1,6 +1,7 @@
 /**
  * Interface name : Statisticable
  * Description : Interface definissant les statistiques des entitées
+ *
  * @author Jean-François Giammari
  */
 
@@ -13,13 +14,22 @@ public interface Statisticable {
     int DEFAULTDAMAGE = 2;
 
     void setLife(int life);
-    int getLife();
-    void setDamages(int damages);
-    int getDamages();
-    void lostLife(int value);
-    void addLife(int value);
-    void lostDamages(int value);
-    void addDamages(int value);
-    void Attack(Entity entity);
 
+    int getLife();
+
+    void setDamages(int damages);
+
+    int getDamages();
+
+    void lostLife(int value);
+
+    void addLife(int value);
+
+    void lostDamages(int value);
+
+    void addDamages(int value);
+
+    void attack(Entity entity);
+
+    String getStats();
 }

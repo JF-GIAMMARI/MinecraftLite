@@ -1,12 +1,13 @@
 /**
  * Class name : Structure
  * Description : Classe implémentant les structures présent dans les biomes
+ *
  * @author Jean-François Giammari
  */
 public abstract class Structure implements Positionable {
     private Position pos;
     public static int nb_struct;
-    final private  int ID;
+    final private int ID;
     final protected int x_length;
     final protected int y_length;
     final protected int DEFAULTSIZE = 10;
@@ -15,20 +16,21 @@ public abstract class Structure implements Positionable {
 
     /**
      * Constructor for Structure with all parameter
-     * @param pos : Start position for the structure
+     *
+     * @param pos      : Start position for the structure
      * @param x_length : X axis value
      * @param y_length : Y axis value
      */
     public Structure(Position pos, int x_length, int y_length) {
         this.pos = pos;
-        if(x_length > MAXSIZE || x_length < MINSIZE){
+        if (x_length > MAXSIZE || x_length < MINSIZE) {
             this.x_length = DEFAULTSIZE;
-        }else{
+        } else {
             this.x_length = x_length;
         }
-        if(y_length > MAXSIZE || y_length < MINSIZE){
+        if (y_length > MAXSIZE || y_length < MINSIZE) {
             this.y_length = DEFAULTSIZE;
-        }else{
+        } else {
             this.y_length = y_length;
         }
         nb_struct++;
@@ -44,6 +46,7 @@ public abstract class Structure implements Positionable {
 
     /**
      * Getter for ID
+     *
      * @return ID
      */
     public int getID() {
@@ -52,6 +55,7 @@ public abstract class Structure implements Positionable {
 
     /**
      * Getter for nb_struct
+     *
      * @return nb_struct
      */
     public static int getNb_struct() {
@@ -61,31 +65,34 @@ public abstract class Structure implements Positionable {
     /**
      * Setter for Position
      */
-    public void setPosition(Position pos){
+    public void setPosition(Position pos) {
         this.pos = pos;
     }
 
     /**
      * Getter for Position
+     *
      * @return pos
      */
-    public Position getPosition(){
+    public Position getPosition() {
         return this.pos;
     }
 
     /**
      * Getter for X Length
+     *
      * @return x_length
      */
-    public int getXLength(){
+    public int getXLength() {
         return this.x_length;
     }
 
     /**
      * Getter for Y Length
+     *
      * @return y_length
      */
-    public int getYLength(){
+    public int getYLength() {
         return this.y_length;
     }
 

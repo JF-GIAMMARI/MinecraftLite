@@ -4,6 +4,7 @@
  * STANDARD : Monde standard avec plusieur biomes
  * FLAT : Monde entierement plat d'un seul type de bloc
  * VOID : Monde entierement vide
+ *
  * @author Jean-François Giammari
  */
 
