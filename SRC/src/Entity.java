@@ -190,6 +190,7 @@ public abstract class Entity implements Positionable, Statisticable {
 
     /**
      * Getter for world
+     *
      * @return world
      */
     public World getWorld() {
@@ -213,7 +214,7 @@ public abstract class Entity implements Positionable, Statisticable {
      */
     public boolean isVoid(Position pos) {
         boolean result = false;
-        //TODO Check if world size is good
+        //Not implemented : Dynamic world size check validation
         if (world.getBlock(pos).getColor() == Colors.VOID) {
             result = true;
         }

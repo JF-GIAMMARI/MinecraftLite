@@ -61,20 +61,19 @@ public class Main {
         p1.delItem(1);
         p1.openInventory();
 
-        System.out.println("\nBlock (1,1,5) : " + w1.getBlock(new Position(1,1,5)).getColor()); // Affichage du block
+        System.out.println("\nBlock (1,1,5) : " + w1.getBlock(new Position(1, 1, 5)).getColor()); // Affichage du block
         System.out.println("*Minage du block (1,1,5)*");
-        p1.mineBlock(new Position(1,1,5)); // Minage du block
-        System.out.println("Block (1,1,5) : "+ w1.getBlock(new Position(1,1,5)).getColor()); // Affichage du block
+        p1.mineBlock(new Position(1, 1, 5)); // Minage du block
+        System.out.println("Block (1,1,5) : " + w1.getBlock(new Position(1, 1, 5)).getColor()); // Affichage du block
         p1.openInventory();
-        System.out.println("\nBlock (1,1,8) : "+ w1.getBlock(new Position(1,1,8)).getColor()); // Affichage du block
+        System.out.println("\nBlock (1,1,8) : " + w1.getBlock(new Position(1, 1, 8)).getColor()); // Affichage du block
         System.out.println("*Placement du slot 0 de l'inventaire a la position :  (1,1,8) (Voir SERR fin de programme)"); // Slot 0 est un type OBJECTS non placable
-        p1.placeBlock(0,new Position(1,1,8));
+        p1.placeBlock(0, new Position(1, 1, 8));
         System.out.println("*Placement du slot 1 de l'inventaire a la position :  (1,1,8)"); // Slot 1 est un type BLOCK, placable
-        p1.placeBlock(1,new Position(1,1,8));
-        System.out.println("Block (1,1,8):  "+ w1.getBlock(new Position(1,1,8)).getColor()); // Affichage du block
+        p1.placeBlock(1, new Position(1, 1, 8));
+        System.out.println("Block (1,1,8):  " + w1.getBlock(new Position(1, 1, 8)).getColor()); // Affichage du block
         p1.openInventory();
 
-        /**
         System.out.println("\n\n\n-> Le joueur et les mobs");
         System.out.println("\n\n1.Affichages & manipulation des statistique\n");
         System.out.println(p1.getStats());
@@ -111,12 +110,13 @@ public class Main {
         p1.goLeft(2);
 
         System.out.println("\n\n->Informations sur la partie : \n");
-        System.out.println(w1);
-        System.out.println("\nNombre de block : " + Block.getNb_block());
+        System.out.println("Nombre de block : " + Block.getNb_block());
         System.out.println("Nombre d'entité : " + Entity.getNb_entity());
         System.out.println("Nombre de joueur : " + Player.getNb_player());
         System.out.println("Nombre de mob : " + Mob.getNb_mobs());
-         System.out.println("Nombre d'inventaire' : " + Inventory.getNb_inventory());
-        **/
+        System.out.println("Nombre d'inventaire' : " + Inventory.getNb_inventory());
+        System.out.println("Le monde : \n");
+        System.out.println(w1);
+
     }
 }

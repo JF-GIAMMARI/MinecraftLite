@@ -36,6 +36,7 @@ public class Player extends Entity implements Positionable {
 
     /**
      * Getter for pseudo
+     *
      * @return pseudo
      */
     public String getPseudo() {
@@ -54,23 +55,25 @@ public class Player extends Entity implements Positionable {
     /**
      * Display the inventory
      */
-    public void openInventory(){
+    public void openInventory() {
         System.out.println(inventory.display());
     }
 
     /**
      * Caller for addItem
+     *
      * @param o : Object to convert to item
      */
-    public void giveItem(Object o){
+    public void giveItem(Object o) {
         this.inventory.addItem(o);
     }
 
     /**
      * Caller for removeItem
+     *
      * @param index : index
      */
-    public void delItem(int index){
+    public void delItem(int index) {
         this.inventory.removeItem(index);
     }
 
@@ -88,15 +91,15 @@ public class Player extends Entity implements Positionable {
      * Player place a block in the world and is removed  from the inventory
      *
      * @param index : Index of the block in the inventory
-     * @param pos : Position
+     * @param pos   : Position
      */
     public void placeBlock(int index, Position pos) {
-        if(index > inventory.getItems().size()){
+        if (index > inventory.getItems().size()) {
             System.err.println("Empty slot selected for place block, retry");
-        }else if(inventory.getItem(index).getType() != ItemType.BLOCK){
+        } else if (inventory.getItem(index).getType() != ItemType.BLOCK) {
             System.err.println("The item selected ins't placable");
-        }else{
-            this.getWorld().setBlock(pos,new Block(inventory.getItem(index).getColor(), getWorld(), pos));
+        } else {
+            this.getWorld().setBlock(pos, new Block(inventory.getItem(index).getColor(), getWorld(), pos));
             inventory.removeItem(index);
         }
 

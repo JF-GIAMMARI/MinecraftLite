@@ -1,15 +1,17 @@
 /**
  * Class name : Position
  * Description : Classe outils pour le format des positions
+ *
  * @author Jean-François Giammari
  */
 
 
 public class Position {
-    private int x,y,z;
+    private int x, y, z;
 
     /**
      * Constructor for position
+     *
      * @param x
      * @param y
      * @param z
@@ -20,7 +22,9 @@ public class Position {
         this.z = z;
     }
 
-    /** GETTER **/
+    /**
+     * GETTER
+     **/
     public int getX() {
         return x;
     }
@@ -33,7 +37,7 @@ public class Position {
         return z;
     }
 
-    public int[] getPos(){
+    public int[] getPos() {
         int[] pos = new int[3];
         pos[0] = x;
         pos[1] = y;
@@ -43,6 +47,6 @@ public class Position {
 
     @Override
     public String toString() {
-        return "X = " + x + ", Y = " + y + ", Z = " + z ;
+        return "X = " + x + ", Y = " + y + ", Z = " + z;
     }
 }

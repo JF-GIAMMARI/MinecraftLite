@@ -4,6 +4,7 @@ import java.util.Objects;
 /**
  * Class name : Item
  * Description : Classe implémentant les objets présent dans un inventaire
+ *
  * @author Jean-François Giammari
  */
 
@@ -17,8 +18,9 @@ public class Item {
 
     /**
      * Constructor for Item with all parmeters
-     * @param type : Type of item
-     * @param name : Name
+     *
+     * @param type  : Type of item
+     * @param name  : Name
      * @param color : Optional Color
      */
     public Item(ItemType type, String name, Colors color) {
@@ -33,11 +35,21 @@ public class Item {
      * Constructor without color
      */
     public Item(ItemType type, String name) {
-        this(type,name,null);
+        this(type, name, null);
+    }
+
+    /**
+     * Getter for nb_item
+     *
+     * @return nb_item
+     */
+    public static int getNb_item() {
+        return nb_item;
     }
 
     /**
      * Getter for name
+     *
      * @return name
      */
     public String getName() {
@@ -46,6 +58,7 @@ public class Item {
 
     /**
      * Getter for type
+     *
      * @return type
      */
     public ItemType getType() {
@@ -54,6 +67,7 @@ public class Item {
 
     /**
      * Getter for color
+     *
      * @return color
      */
     public Colors getColor() {
@@ -77,7 +91,7 @@ public class Item {
         sb.append("\nID : ").append(ID);
         sb.append("\nName : ").append(name);
         sb.append("\nType : ").append(type);
-        if(color != Colors.NONE){
+        if (color != Colors.NONE) {
             sb.append("\n Color : ").append(color);
         }
         return sb.toString();
