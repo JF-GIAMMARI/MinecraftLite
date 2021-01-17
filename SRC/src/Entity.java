@@ -8,9 +8,8 @@ import java.util.Objects;
 
 
 public abstract class Entity implements Positionable, Statisticable {
-    public static int nb_entity;
+    public static int nb_entity = 0;
     private final World world;
-    private final Inventory inventory;
     private final int ID;
     private int life;
     private int damages;
@@ -30,7 +29,6 @@ public abstract class Entity implements Positionable, Statisticable {
         setPosition(pos);
         setLife(life);
         setDamages(damages);
-        this.inventory = new Inventory();
         nb_entity++;
         this.ID = nb_entity;
     }
@@ -165,7 +163,7 @@ public abstract class Entity implements Positionable, Statisticable {
      */
     public void setPosition(Position pos) throws IllegalPositionException {
         if(this.world.getBlock(pos).getColor() != Colors.VOID ){
-            throw new IllegalPositionException();
+            throw new IllegalPositionException("The target position is already a "+world.getBlock(pos).getColor() +" block");
         }else{
             this.pos = pos;
         }
@@ -186,6 +184,7 @@ public abstract class Entity implements Positionable, Statisticable {
      */
     public boolean isVoid(Position pos){
         boolean result = false;
+        //TODO Check if world size is good
         if(world.getBlock(pos).getColor()== Colors.VOID){
             result = true;
         }
@@ -200,6 +199,9 @@ public abstract class Entity implements Positionable, Statisticable {
             Position testPosition = new Position(this.pos.getX()+1, this.pos.getY(), this.pos.getZ());
             if(isVoid(testPosition)){
                 this.setPosition(testPosition);
+            }else{
+                System.out.println("Can't go more forward");
+                break;
             }
         }
     }
@@ -212,6 +214,9 @@ public abstract class Entity implements Positionable, Statisticable {
             Position testPosition = new Position(this.pos.getX()-1, this.pos.getY(), this.pos.getZ());
             if(isVoid(testPosition)){
                 this.setPosition(testPosition);
+            }else{
+                System.out.println("Can't go more backward");
+                break;
             }
         }
     }
@@ -224,6 +229,9 @@ public abstract class Entity implements Positionable, Statisticable {
             Position testPosition = new Position(this.pos.getX(), this.pos.getY()-1, this.pos.getZ());
             if(isVoid(testPosition)){
                 this.setPosition(testPosition);
+            }else{
+                System.out.println("Can't go more left");
+                break;
             }
         }
     }
@@ -236,6 +244,9 @@ public abstract class Entity implements Positionable, Statisticable {
             Position testPosition = new Position(this.pos.getX(), this.pos.getY()+1, this.pos.getZ());
             if(isVoid(testPosition)){
                 this.setPosition(testPosition);
+            }else{
+                System.out.println("Can't go more right");
+                break;
             }
         }
     }
@@ -248,6 +259,9 @@ public abstract class Entity implements Positionable, Statisticable {
             Position testPosition = new Position(this.pos.getX(), this.pos.getY(), this.pos.getZ()+1);
             if(isVoid(testPosition)){
                 this.setPosition(testPosition);
+            }else{
+                System.out.println("Can't go more top");
+                break;
             }
         }
     }
@@ -260,16 +274,11 @@ public abstract class Entity implements Positionable, Statisticable {
             Position testPosition = new Position(this.pos.getX(), this.pos.getY(), this.pos.getZ()-1);
             if(isVoid(testPosition)){
                 this.setPosition(testPosition);
+            }else{
+                System.out.println("Can't go more bottom");
+                break;
             }
         }
-    }
-
-    /**
-     * Getter for Inventory
-     * @return inventory
-     */
-    public Inventory getInventory() {
-        return inventory;
     }
 
     /**

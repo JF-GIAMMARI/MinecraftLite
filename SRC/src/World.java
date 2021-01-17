@@ -288,7 +288,18 @@ public class World {
         sb.append(" [").append(ID).append("]\n");
         sb.append("Size  : ").append(world_size).append("\n");
         if(structures.size() != 0){
-            sb.append("\n Structures : ");
+            sb.append("\n--Structures (").append(structures.size()).append(") : \n");
+            for (Structure structure : structures) {
+                sb.append(structure);
+                sb.append("\n");
+            }
+        }
+        if(entities.size() != 0){
+            sb.append("\n\n--Entities (").append(entities.size()).append(") : \n");
+            for (Entity entity : entities) {
+                sb.append(entity);
+                sb.append("\n");
+            }
         }
         return sb.toString();
     }

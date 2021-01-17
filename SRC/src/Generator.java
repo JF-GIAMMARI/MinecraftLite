@@ -41,9 +41,9 @@ public class Generator {
                 map.get(i).add(new ArrayList<>(y_length));
                 for (int k = 0; k < z_length; k++) {
                     if(k > z_length/2){ // 50/50 Void and Block
-                        map.get(i).get(j).add(k,new Block(colors, world, new Position(i,j,k)));
-                    }else{
                         map.get(i).get(j).add(k,new Block(Colors.VOID, world, new Position(i,j,k)));
+                    }else{
+                        map.get(i).get(j).add(k,new Block(colors, world, new Position(i,j,k)));
                     }
 
 
