@@ -5,4 +5,7 @@
  */
 
 public class Mob extends Entity{
+    public Mob(World world, Position pos, int life, int damage) throws IllegalPositionException {
+        super(world, pos, life, damage);
+    }
 }

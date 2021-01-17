@@ -43,6 +43,7 @@ public class Main {
         System.out.println("\n\n\n-> Le joueur et les mobs");
         // new Mob
         // Joueur get Position
+        // Vie, damamges etc.. die ..
         // World AddEntity (Position, Mob)
         // World. getEntities(id, position, etc...)
         // mob.getstats

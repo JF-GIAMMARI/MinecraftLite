@@ -18,6 +18,7 @@ public class World {
     private ArrayList<ArrayList<ArrayList<Block>>> map;
     private ArrayList<Integer> world_size = new ArrayList<>();
     private ArrayList<Structure> structures = new ArrayList<>();
+    private ArrayList<Entity> entities = new ArrayList<>();
 
     /**
      * Constructor for World with all parameter
@@ -141,6 +142,58 @@ public class World {
      */
     public ArrayList<Structure> getAllStructure(){
         return structures;
+    }
+
+    /**
+     * Add Entity to the world
+     */
+    public void addEntity(Entity entity){
+        entities.add(entity);
+    }
+
+    /**
+     * Remove Entity from the world
+     */
+    public void delEntity(Entity entity){
+        entities.remove(entity);
+    }
+
+    /**
+     * Get the entity of the entities list by an index value
+     * @param index : entity ArrayList index
+     * @return Entity
+     */
+    public Entity getEntityByIndex(int index){
+        if(index > entities.size()){
+            throw new IllegalArgumentException("Invalid index");
+        }
+        return entities.get(index);
+    }
+
+    /**
+     * Get the entity of the entities list by an index value
+     * @param ID : entity ID
+     * @return Entity
+     */
+    public Entity getEntityByID(int ID){
+        int result = -1;
+        for (int i = 0; i <entities.size(); i++) {
+            if(entities.get(i).getID() == ID){
+                result = i;
+            }
+        }
+        if(result == -1){
+            throw new IllegalArgumentException("Invalid ID");
+        }
+        return entities.get(result);
+    }
+
+    /**
+     * Get the structure list
+     * @return structures
+     */
+    public ArrayList<Entity> getAllEntity(){
+        return entities;
     }
 
 
