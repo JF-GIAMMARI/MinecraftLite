@@ -49,15 +49,32 @@ public class Main {
         System.out.println("Position (Back+3) : " + p1.getPosition() + "\n");
 
         System.out.println("\n\n2.Inventaire & Intéraction\n");
-        // Joueur views inventaire
-        // WOrld . getBlock(Position)
-        // Joueur. mineBlock(Position)
-        // Joueur views inventaire
-        // Joueur. placeBlock(Position)
-        // Joueur vies inventaire
-        // new Item (Sword)
-        // Joueur. addItem
 
+        p1.openInventory();
+        System.out.println("*Ajout d'une feuille de papier a l'inventaire*");
+        Item paper = new Item(ItemType.OBJECTS, "Paper");
+        Item stick = new Item(ItemType.OBJECTS, "Stick");
+        p1.giveItem(paper);
+        p1.giveItem(stick);
+        p1.openInventory();
+        System.out.println("*Suppression de l'item index 1*");
+        p1.delItem(1);
+        p1.openInventory();
+
+        System.out.println("\nBlock (1,1,5) : " + w1.getBlock(new Position(1,1,5)).getColor()); // Affichage du block
+        System.out.println("*Minage du block (1,1,5)*");
+        p1.mineBlock(new Position(1,1,5)); // Minage du block
+        System.out.println("Block (1,1,5) : "+ w1.getBlock(new Position(1,1,5)).getColor()); // Affichage du block
+        p1.openInventory();
+        System.out.println("\nBlock (1,1,8) : "+ w1.getBlock(new Position(1,1,8)).getColor()); // Affichage du block
+        System.out.println("*Placement du slot 0 de l'inventaire a la position :  (1,1,8) (Voir SERR fin de programme)"); // Slot 0 est un type OBJECTS non placable
+        p1.placeBlock(0,new Position(1,1,8));
+        System.out.println("*Placement du slot 1 de l'inventaire a la position :  (1,1,8)"); // Slot 1 est un type BLOCK, placable
+        p1.placeBlock(1,new Position(1,1,8));
+        System.out.println("Block (1,1,8):  "+ w1.getBlock(new Position(1,1,8)).getColor()); // Affichage du block
+        p1.openInventory();
+
+        /**
         System.out.println("\n\n\n-> Le joueur et les mobs");
         System.out.println("\n\n1.Affichages & manipulation des statistique\n");
         System.out.println(p1.getStats());
@@ -93,12 +110,13 @@ public class Main {
         System.out.println("\nTentative de déplacement du joueur (Voir SERR fin de programme) ");
         p1.goLeft(2);
 
-        System.out.println("\n\n ->Informations sur la partie : \n");
+        System.out.println("\n\n->Informations sur la partie : \n");
         System.out.println(w1);
         System.out.println("\nNombre de block : " + Block.getNb_block());
         System.out.println("Nombre d'entité : " + Entity.getNb_entity());
         System.out.println("Nombre de joueur : " + Player.getNb_player());
         System.out.println("Nombre de mob : " + Mob.getNb_mobs());
-
+         System.out.println("Nombre d'inventaire' : " + Inventory.getNb_inventory());
+        **/
     }
 }

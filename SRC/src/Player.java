@@ -22,7 +22,7 @@ public class Player extends Entity implements Positionable {
         } else {
             this.pseudo = pseudo;
         }
-        this.inventory = new Inventory();
+        this.inventory = new Inventory(this);
         nb_player++;
 
     }
@@ -35,6 +35,14 @@ public class Player extends Entity implements Positionable {
     }
 
     /**
+     * Getter for pseudo
+     * @return pseudo
+     */
+    public String getPseudo() {
+        return pseudo;
+    }
+
+    /**
      * Getter for Inventory
      *
      * @return inventory
@@ -44,20 +52,53 @@ public class Player extends Entity implements Positionable {
     }
 
     /**
+     * Display the inventory
+     */
+    public void openInventory(){
+        System.out.println(inventory.display());
+    }
+
+    /**
+     * Caller for addItem
+     * @param o : Object to convert to item
+     */
+    public void giveItem(Object o){
+        this.inventory.addItem(o);
+    }
+
+    /**
+     * Caller for removeItem
+     * @param index : index
+     */
+    public void delItem(int index){
+        this.inventory.removeItem(index);
+    }
+
+    /**
      * Player mine a block in the world and is added to inventory
      *
      * @param pos : Position of the block
      */
     public void mineBlock(Position pos) {
-
+        inventory.addItem(this.getWorld().getBlock(pos));
+        this.getWorld().deleteBlock(pos);
     }
 
     /**
      * Player place a block in the world and is removed  from the inventory
      *
      * @param index : Index of the block in the inventory
+     * @param pos : Position
      */
-    public void placeBlock(int index) {
+    public void placeBlock(int index, Position pos) {
+        if(index > inventory.getItems().size()){
+            System.err.println("Empty slot selected for place block, retry");
+        }else if(inventory.getItem(index).getType() != ItemType.BLOCK){
+            System.err.println("The item selected ins't placable");
+        }else{
+            this.getWorld().setBlock(pos,new Block(inventory.getItem(index).getColor(), getWorld(), pos));
+            inventory.removeItem(index);
+        }
 
     }
 
@@ -82,11 +123,8 @@ public class Player extends Entity implements Positionable {
 
     @Override
     public String toString() {
-        String sb =
-                "Type : Player " +
-                        "\nPseudo : " + pseudo +
-                        "\n" + super.toString();
-        return sb;
+        return "Type : Player " + "\nPseudo : " + pseudo + "\n" + super.toString();
+
     }
 
 

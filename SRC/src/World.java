@@ -215,6 +215,20 @@ public class World {
     }
 
     /**
+     * Place a specific block on a specific position
+     * @param position : Position
+     * @param b : Block
+     */
+    public void setBlock(Position position,Block b) {
+        if(getBlock(position).getColor() != Colors.VOID){
+            System.err.println("The target position isn't empty, retry");
+        }else{
+            map.get(position.getX()).get(position.getY()).add(position.getZ(), b);
+        }
+
+    }
+
+    /**
      * Delete the block from a position
      *
      * @param position : Position of the block

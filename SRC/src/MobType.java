@@ -10,6 +10,11 @@ public enum MobType {
     VAMPIRE,
     DRAGON,
     CREEPER,
+    SKELETON,
+    SPIDER,
+    SQUIRREL,
+    GOAT,
+    RABBIT,
     JAVA,
     COVID
 }

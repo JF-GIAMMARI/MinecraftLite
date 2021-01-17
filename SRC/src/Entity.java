@@ -189,6 +189,14 @@ public abstract class Entity implements Positionable, Statisticable {
     }
 
     /**
+     * Getter for world
+     * @return world
+     */
+    public World getWorld() {
+        return world;
+    }
+
+    /**
      * Getter for Position
      *
      * @return pos
